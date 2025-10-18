@@ -1,0 +1,14 @@
+# 1) Create a report
+curl -s -X POST http://localhost:5000/api/v1/reports \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Broken thing","category":"bug","body":"it hurts"}'
+
+# -> Save {"ticket":"...","access_code":"..."} from response
+
+# 2) Fetch the report
+curl -s "http://localhost:5000/api/v1/reports/TICKET_HERE?code=ACCESS_CODE_HERE"
+
+# 3) Post a message
+curl -s -X POST "http://localhost:5000/api/v1/reports/TICKET_HERE/messages?code=ACCESS_CODE_HERE" \
+  -H "Content-Type: application/json" \
+  -d '{"body":"More info"}'

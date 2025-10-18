@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API = "http://localhost:5000"; //Remove from here "In Production". add to .env
 
 export async function createReport(formData) {
   const r = await fetch(`${API}/api/v1/reports`, {

@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/avneep/My Projects/Sluglime/sluglime/backend/.venv/bin/python3.11" "$0" "$@"
+'''exec' "/Users/avneep/My Projects/Sluglime/slugime_new/backend/.venv/bin/python3.13" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
