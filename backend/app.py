@@ -41,12 +41,18 @@ def create_app() -> Flask:
     # Helper Functions
     # -----------------------
     def get_current_user():
+        """
+        Extract and validate the current user from the Authorization header.
+        Returns User object if valid, None otherwise.
+        """
         auth = request.headers.get("Authorization", "")
         parts = auth.split()
         if len(parts) == 2 and parts[0].lower() == "bearer":
             data = verify_token(parts[1])
             if data and (uid := data.get("uid")):
-                return User.query.get(uid)
+                user = User.query.get(uid)
+                if user:
+                    return user
         return None
 
     def get_report_or_404(ticket: str):

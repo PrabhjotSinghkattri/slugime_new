@@ -32,10 +32,10 @@ def get_serializer() -> URLSafeTimedSerializer:
     """Return a configured serializer for issuing/verifying tokens."""
     return URLSafeTimedSerializer(secret_key=Config.SECRET_KEY, salt="session")
 
-def issue_token(payload: dict, expires_in_seconds: int = 60*60*24*14) -> str:
+def issue_token(payload: dict) -> str:
     """
     Issue a signed token containing `payload`.
-    Note: expires_in_seconds is not enforced here but can be used in custom logic.
+    Token expiration is verified in verify_token() with max_age parameter.
     """
     s = get_serializer()
     return s.dumps(payload)
