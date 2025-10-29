@@ -34,6 +34,8 @@ def create_app() -> Flask:
 
     # Create necessary folders and tables
     with app.app_context():
+        # Ensure instance folder exists for SQLite database
+        os.makedirs("instance", exist_ok=True)
         os.makedirs(app.config.get("UPLOAD_FOLDER", "uploads"), exist_ok=True)
         db.create_all()
 
