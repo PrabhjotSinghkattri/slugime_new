@@ -1,71 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Shield, Lock, Brain, ArrowRight } from "lucide-react";
+import { Search } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="container">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1 className="hero-title">Speak Truth, Stay Anonymous.</h1>
-              <p className="hero-description">
-                Sluglime provides a secure and untraceable platform for whistleblowers 
-                to expose misconduct and for communities to investigate collaboratively.
-              </p>
-              <div className="hero-actions">
-                <Link to="/submit" className="btn btn-primary btn-large">
-                  Submit Anonymously
-                </Link>
-                <Link to="/about" className="btn btn-secondary btn-large">
-                  Learn More
-                </Link>
-              </div>
-            </div>
-            <div className="hero-visual">
-              <div className="network-graphic">
-                <div className="network-nodes">
-                  <div className="node node-1"></div>
-                  <div className="node node-2"></div>
-                  <div className="node node-3"></div>
-                  <div className="node node-4"></div>
-                  <div className="node node-5"></div>
-                  <div className="node node-6"></div>
-                </div>
-                <div className="center-shield">
-                  <Shield size={48} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <header className="container page-header" style={{paddingTop: '1.5rem'}}>
+        <hr style={{border:'0',borderTop:'1px solid #ddd',marginBottom:'1rem'}} />
+        <h1 style={{fontSize:'5rem',margin:'0',textAlign:'center',fontWeight:800,color:'#111'}}>slugLime</h1>
+        <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:'1rem',marginTop:'1.75rem'}}>
+          <Link to="/search" aria-label="search" title="Search" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',width:44,height:44,borderRadius:44,border:'1px solid #ddd',background:'#fff'}}>
+            <Search color="#111" />
+          </Link>
 
-      {/* Features Section */}
-      <section className="features-section">
-        <div className="container">
-          <h2 className="features-title">Why Sluglime is Different</h2>
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Shield size={40} />
-              </div>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Lock size={40} />
-              </div>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Brain size={40} />
-              </div>
-            </div>
+          <div className="segmented-control" role="tablist" aria-label="content-type">
+            <Link to="/newsletter" className="seg-btn active">✓</Link>
+            <Link to="/magazine" className="seg-btn">Magazine</Link>
           </div>
         </div>
-      </section>
+        <hr style={{border:'0',borderTop:'1px solid #ddd',marginTop:'1.75rem'}} />
+      </header>
+
+      <main className="container" style={{minHeight:'60vh', position:'relative'}}>
+        {/* empty content area for now - real feed will be added later */}
+        <div style={{height:'48vh'}}></div>
+
+        <Link to="/submit" className="fab" aria-label="create">
+          <div className="fab-inner">+</div>
+        </Link>
+      </main>
     </div>
   );
 }

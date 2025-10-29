@@ -4,6 +4,9 @@ import "./theme.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Search from "./pages/Search";
+import Magazine from "./pages/Magazine";
+import Newsletter from "./pages/Newsletter";
 import Submit from "./pages/Submit";
 import Status from "./pages/Status";
 import About from "./pages/About";
@@ -22,6 +25,9 @@ export default function App() {
             <Route path="/status" element={<Status />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/magazine" element={<Magazine />} />
+            <Route path="/newsletter" element={<Newsletter />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
